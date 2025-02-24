@@ -1,0 +1,6 @@
+com/example/app2/Application.class
+com/example/app2/model/User.class
+com/example/app2/service/UserService.class
+com/example/app2/repository/UserRepository.class
+com/example/app2/App2Controller.class
+com/example/app2/controller/UserController.class

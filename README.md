@@ -1,4 +1,4 @@
-# Dağıtık Sistem Projesi
+# Dağıtık Sistemler
 
 Bu proje, Docker teknolojisi kullanılarak oluşturulmuş dağıtık bir sistem mimarisidir. Projede, Nginx yük dengeleyici, iki adet replikasyonlu Spring Boot uygulama sunucusu, PostgreSQL veritabanı sunucusu ve Redis cache sunucusu yer almaktadır.
 
@@ -52,7 +52,7 @@ Bu proje, modern uygulama geliştirme ve dağıtık sistem mimarilerini öğrenm
 2. **Docker Container’larını Oluşturun ve Başlatın:**
 
    ```bash
-   docker-compose up --build
+   docker-compose up --build -d
    ```
 
    Bu komut, Spring Boot uygulamaları için gerekli imajları oluşturur ve tüm container’ları başlatır.
@@ -62,8 +62,6 @@ Bu proje, modern uygulama geliştirme ve dağıtık sistem mimarilerini öğrenm
    Tarayıcınızda `http://localhost` adresine giderek, Nginx yük dengeleyici aracılığıyla uygulamaya erişebilirsiniz.
 
 4. **Container’ları Durdurmak:**
-
-   Terminalde `CTRL+C` tuş kombinasyonu ile işlemi durdurabilir, ardından:
 
    ```bash
    docker-compose down

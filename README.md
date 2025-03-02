@@ -22,7 +22,7 @@ Bu proje, modern uygulama geliştirme ve dağıtık sistem mimarilerini öğrenm
   - Yük dengeleyici olarak çalışır ve gelen istekleri Spring Boot uygulama sunucularına yönlendirir.
   - Failover yapılandırması sayesinde, bir uygulama sunucusunun erişilememesi durumunda diğer sunucu devreye girer.
 
-- **Spring Boot Uygulamaları (app1, app2):**  
+- **Spring Boot Uygulamaları :**  
   - İki adet replikasyonlu uygulama sunucusu bulunur.
   - Uygulama sunucuları, PostgreSQL veritabanı ve Redis cache ile entegre çalışmaktadır.
 
@@ -112,24 +112,31 @@ distributed-systems-architecture/
 
 ## Konfigürasyon Detayları
 
-- **Nginx:**
-  - Konfigürasyon dosyası: `nginx/nginx.conf`
-  - Upstream bloğunda, `app1:8080` ve `app2:8081` sunucuları tanımlanmıştır.
-  - `max_fails` ve `fail_timeout` parametreleri ile failover mekanizması sağlanmıştır.
+- **Nginx:**  
+  - Konfigürasyon dosyası: nginx/nginx.conf 
+  - Reverse Proxy olarak çalışır: Tüm HTTP isteklerini Spring Boot uygulamasına yönlendirir.
+  - Load Balancer olarak ayarlanmıştır: Eğer birden fazla backend eklenirse, istekleri dağıtabilir.
+  - Failover mekanizması içerir: Eğer app container'ı kapanırsa, uygun yanıt döndürür.
 
-- **Spring Boot Uygulamaları:**
-  - Her iki uygulama da kendi `Dockerfile`’ları aracılığıyla imajlanmaktadır.
-  - Ortam değişkenleri ile PostgreSQL ve Redis bağlantı bilgileri yapılandırılmıştır.
-  - `app2` için `server.port=8081` ayarı, container içindeki port yapılandırmasını belirler.
+- **Spring Boot Uygulamaları :**  
+  - Port: 8080
+  - Veritabanı: PostgreSQL (db container'ı)
+  - Cache: Redis (redis container'ı)
+  - Docker Container içinde çalıştırılır.
 
-- **PostgreSQL:**
-  - Konfigürasyon, `docker-compose.yml` içerisinde ortam değişkenleri aracılığıyla yapılır.
-  - Veritabanı adı, kullanıcı adı ve şifre ayarları tanımlıdır.
-  - Veri kalıcılığı için `pg_data` volume kullanılmıştır.
+- **PostgreSQL:**  
+  - Konteyner Adı: db
+  - Port: 5432
+  - Veritabanı Adı: mydb
+  - Kullanıcı Adı: user
+  - Şifre: password
+  - Veri kaybını önlemek için pg_data adlı Docker volume kullanılır.
 
-- **Redis:**
-  - Cache sunucusu olarak 6379 portu üzerinden çalışmaktadır.
-
+- **Redis:**  
+  - Konteyner Adı: redis
+  - Port: 6379
+  - Spring Boot tarafından cache olarak kullanılır.
+    
 ## Sorun Giderme
 
 - **Docker ve Docker Compose Kurulumu:**

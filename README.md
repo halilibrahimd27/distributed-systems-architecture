@@ -76,7 +76,7 @@ Bu proje, modern uygulama geliştirme ve dağıtık sistem mimarilerini öğrenm
 distributed-system/
 │-- nginx/
 │   ├── nginx.conf
-│-- app1/
+│-- app/
 │   ├── src/
 │   │   ├── main/
 │   │   │   ├── java/com/example/app1/
@@ -92,22 +92,6 @@ distributed-system/
 │   ├── pom.xml
 │   ├── target/
 │       ├── myapp1.jar
-│-- app2/
-│   ├── src/
-│   │   ├── main/
-│   │   │   ├── java/com/example/app2/
-│   │   │   │   ├── Application.java
-│   │   │   │   ├── controller/
-│   │   │   │   │   ├── HomeController.java
-│   │   │   │   ├── service/
-│   │   │   │   ├── repository/
-│   │   │   │   ├── model/
-│   │   ├── resources/
-│   │   │   ├── application.properties
-│   ├── Dockerfile
-│   ├── pom.xml
-│   ├── target/
-│       ├── myapp2.jar
 │-- db/
 │   ├── init.sql
 │-- redis/

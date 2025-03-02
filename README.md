@@ -24,7 +24,6 @@ Bu proje, modern uygulama geliştirme ve dağıtık sistem mimarilerini öğrenm
 
 - **Spring Boot Uygulamaları (app1, app2):**  
   - İki adet replikasyonlu uygulama sunucusu bulunur.
-  - App1 container'ı 8080 portunu, app2 container'ı ise 8081 portunu kullanacak şekilde yapılandırılmıştır.
   - Uygulama sunucuları, PostgreSQL veritabanı ve Redis cache ile entegre çalışmaktadır.
 
 - **PostgreSQL:**  
@@ -73,46 +72,39 @@ Bu proje, modern uygulama geliştirme ve dağıtık sistem mimarilerini öğrenm
 
 ```
 .
-distributed-system/
-│-- nginx/
-│   ├── nginx.conf
-│-- app1/
-│   ├── src/
-│   │   ├── main/
-│   │   │   ├── java/com/example/app1/
-│   │   │   │   ├── Application.java
-│   │   │   │   ├── controller/
-│   │   │   │   │   ├── HomeController.java
-│   │   │   │   ├── service/
-│   │   │   │   ├── repository/
-│   │   │   │   ├── model/
-│   │   ├── resources/
-│   │   │   ├── application.properties
-│   ├── Dockerfile
-│   ├── pom.xml
-│   ├── target/
-│       ├── myapp1.jar
-│-- app2/
+distributed-systems-architecture/
+│-- app/
 │   ├── src/
 │   │   ├── main/
 │   │   │   ├── java/com/example/app2/
-│   │   │   │   ├── Application.java
 │   │   │   │   ├── controller/
-│   │   │   │   │   ├── HomeController.java
-│   │   │   │   ├── service/
-│   │   │   │   ├── repository/
+│   │   │   │   │   ├── UserController.java
 │   │   │   │   ├── model/
+│   │   │   │   │   ├── User.java
+│   │   │   │   ├── repository/
+│   │   │   │   │   ├── UserRepository.java
+│   │   │   │   ├── service/
+│   │   │   │   │   ├── UserService.java
+│   │   │   │   ├── Application.java
 │   │   ├── resources/
 │   │   │   ├── application.properties
-│   ├── Dockerfile
-│   ├── pom.xml
 │   ├── target/
-│       ├── myapp2.jar
+│   │   ├── classes/
+│   │   ├── generated-sources/
+│   │   ├── generated-test-sources/
+│   │   ├── maven-archiver/
+│   │   ├── maven-status/
+│   │   ├── test-classes/
+│   │   ├── app-1.0.0.jar
+│   │   ├── app-1.0.0.jar.original
+│   ├── pom.xml
 │-- db/
 │   ├── init.sql
-│-- redis/
-│   ├── redis.conf
+│-- nginx/
+│   ├── nginx.conf
 │-- docker-compose.yml
+│-- Dockerfile
+
 │-- README.md
 │-- video/
 │   ├── setup-demo.mp4

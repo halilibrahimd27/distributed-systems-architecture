@@ -11,6 +11,7 @@ Bu proje, Docker teknolojisi kullanılarak oluşturulmuş dağıtık bir sistem 
 - [Proje Yapısı](#proje-yapısı)
 - [Konfigürasyon Detayları](#konfigürasyon-detayları)
 - [Sorun Giderme](#sorun-giderme)
+- [Uygulamanın Tanıtımı](#uygulamanın-tanıtımı)
 
 ## Proje Hakkında
 
@@ -151,4 +152,10 @@ distributed-systems-architecture/
 
 - **Port Çakışmaları:**
   - Özellikle `80`, `5432` ve `6379` portlarının başka servisler tarafından kullanılmadığından emin olun.
+
+
+## Uygulamanın Tanıtımı
+
+ - Git LFS ile aynı günde belirli kotaya sahip videolar yüklenebildiği için direk video olarak ekleyemedim, o yüzden drive üzerinden paylaşacağım.
+ - Video Linki : https://drive.google.com/file/d/1kd4OioBkjeoCp62qXBVMgHYIQYj50UcR/view?usp=sharing
 
